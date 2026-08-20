@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "livePreview.defaultPreviewPath": "/index.html"
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-vscode.live-server",
+      "ms-dotnettools.csdevkit"
+    ]
+  }
+}
