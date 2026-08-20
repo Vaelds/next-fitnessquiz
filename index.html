@@ -3,15 +3,200 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Åbner NEXT Fitnessquiz…</title>
-  <meta http-equiv="refresh" content="0; url=NEXTFitnessQuiz/wwwroot/index.html">
-  <style>
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #071326; color: #fff; font: 18px Arial, sans-serif; }
-    a { color: #bfe8e3; }
-  </style>
+  <meta name="description" content="Interaktiv læringsquiz om underkroppens muskler for NEXTs fitnesselever.">
+  <meta name="theme-color" content="#08162c">
+  <title>NEXT Fitnessquiz · Underkroppens muskler</title>
+  <link rel="stylesheet" href="css/site.css">
+  <script src="data/questions.js" defer></script>
+  <script src="js/quiz.js" defer></script>
 </head>
 <body>
-  <p>Åbner quizzen… <a href="NEXTFitnessQuiz/wwwroot/index.html">Klik her, hvis siden ikke åbner automatisk.</a></p>
-  <script>window.location.replace("NEXTFitnessQuiz/wwwroot/index.html");</script>
+  <a class="skip-link" href="#main-content">Gå til indhold</a>
+
+  <header class="masthead">
+    <a class="brand" href="#" data-home aria-label="Gå til quizforsiden">
+      <img src="assets/images/next-logo.png" alt="NEXT Uddannelse København">
+    </a>
+    <div class="masthead-meta" aria-label="Modul">
+      <span>Fitnessuddannelsen</span>
+      <strong>Anatomi · Underkrop</strong>
+    </div>
+    <button class="header-cta" type="button" data-start>
+      Start quiz
+      <span aria-hidden="true">↗</span>
+    </button>
+  </header>
+
+  <main id="main-content">
+    <div id="intro-screen" class="screen">
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-photo" src="assets/images/hero-fitness.png" alt="Atlet udfører en kontrolleret Bulgarian split squat">
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-shape hero-shape-one" aria-hidden="true"></div>
+        <div class="hero-shape hero-shape-two" aria-hidden="true"></div>
+
+        <div class="hero-content page-width">
+          <p class="overline"><span>Quiz</span> Fitness · Anatomi · Underkroppen</p>
+          <h1 id="hero-title">Kan du<br>underkroppens<br><em>muskler?</em></h1>
+          <p class="hero-lead">22 skarpe spørgsmål om navn, placering, funktion og øvelsesvalg. Ét rigtigt svar. Faglig forklaring med det samme.</p>
+          <div class="hero-actions">
+            <button class="button button-primary" type="button" data-start>
+              Start quizzen
+              <span aria-hidden="true">→</span>
+            </button>
+            <a class="text-link" href="#quiz-overview">Se indholdet <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+
+        <div class="hero-stats page-width" aria-label="Information om quizzen">
+          <div><strong>22</strong><span>spørgsmål</span></div>
+          <div><strong>08</strong><span>minutter</span></div>
+          <div><strong>01</strong><span>rigtigt svar</span></div>
+          <p>Udviklet til elever på NEXTs fitnessuddannelse</p>
+        </div>
+      </section>
+
+      <section id="quiz-overview" class="overview page-width" aria-labelledby="overview-title">
+        <div class="section-intro">
+          <p class="overline"><span>01</span> Læringsmål</p>
+          <h2 id="overview-title">Fra muskelkort<br>til aktiv viden</h2>
+          <p>Quizzen omsætter repetitionskortene til en fokuseret test. Du får straks at vide, hvorfor svaret er rigtigt, så hvert spørgsmål også bliver en mikrolektion.</p>
+        </div>
+
+        <div class="topic-grid">
+          <article>
+            <span class="topic-index">A</span>
+            <div class="topic-icon" aria-hidden="true">Aa</div>
+            <h3>Navn</h3>
+            <p>Latinske navne, muskelgrupper og hvilke dele en muskel består af.</p>
+          </article>
+          <article>
+            <span class="topic-index">B</span>
+            <div class="topic-icon" aria-hidden="true">⌖</div>
+            <h3>Placering</h3>
+            <p>Udspring, hæfte og musklernes placering i forhold til knogler og led.</p>
+          </article>
+          <article>
+            <span class="topic-index">C</span>
+            <div class="topic-icon" aria-hidden="true">↔</div>
+            <h3>Funktion</h3>
+            <p>Hvilket led musklen arbejder over, og hvilken bevægelse kontraktionen skaber.</p>
+          </article>
+          <article>
+            <span class="topic-index">D</span>
+            <div class="topic-icon" aria-hidden="true">▲</div>
+            <h3>Øvelser</h3>
+            <p>Øvelser og variationer, der involverer eller fremhæver den enkelte muskel.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="process">
+        <div class="page-width process-grid">
+          <div class="process-copy">
+            <p class="overline overline-light"><span>02</span> Quizflow</p>
+            <h2>Ét spørgsmål.<br>Ét valg.<br>En forklaring.</h2>
+          </div>
+          <ol class="process-list">
+            <li><b>01</b><span><strong>Vælg dit svar</strong><small>Fire tydelige valgmuligheder. Kun én er korrekt.</small></span></li>
+            <li><b>02</b><span><strong>Forstå facit</strong><small>Få forklaringen, før du går videre.</small></span></li>
+            <li><b>03</b><span><strong>Se din profil</strong><small>Afslut med score, emnefordeling og fuldt facit.</small></span></li>
+          </ol>
+          <button class="button button-light" type="button" data-start>Jeg er klar <span aria-hidden="true">→</span></button>
+        </div>
+      </section>
+    </div>
+
+    <section id="quiz-screen" class="screen quiz-shell" hidden aria-labelledby="question-title">
+      <div class="quiz-topbar">
+        <div class="page-width quiz-topbar-inner">
+          <div>
+            <span id="question-counter">Spørgsmål 01 / 22</span>
+            <strong id="question-category">Navn</strong>
+          </div>
+          <div class="progress-track" role="progressbar" aria-label="Quizfremdrift" aria-valuemin="0" aria-valuemax="22" aria-valuenow="1">
+            <span id="progress-bar"></span>
+          </div>
+          <button class="quiet-button" type="button" data-home>Afslut</button>
+        </div>
+      </div>
+
+      <div class="page-width quiz-layout">
+        <aside class="quiz-rail" aria-label="Quizindhold">
+          <p class="rail-kicker">Du testes i</p>
+          <ul id="category-list"></ul>
+          <div class="rail-note">
+            <span aria-hidden="true">i</span>
+            <p>Vælg ét svar. Facit kan ikke ændres, når du har svaret.</p>
+          </div>
+        </aside>
+
+        <article class="question-panel">
+          <p id="muscle-name" class="overline"><span id="question-number">01</span> M. iliopsoas</p>
+          <h1 id="question-title" tabindex="-1"></h1>
+          <div id="answer-list" class="answer-list" role="radiogroup" aria-label="Svarmuligheder"></div>
+          <div id="question-action" class="question-action">
+            <p id="selection-hint">Vælg en svarmulighed for at fortsætte.</p>
+            <button id="submit-answer" class="button button-primary" type="button" disabled>Bekræft svar <span aria-hidden="true">→</span></button>
+          </div>
+
+          <div id="feedback-panel" class="feedback-panel" hidden aria-live="polite">
+            <div id="feedback-symbol" class="feedback-symbol" aria-hidden="true"></div>
+            <div class="feedback-copy">
+              <p id="feedback-kicker"></p>
+              <h2 id="feedback-title"></h2>
+              <p id="feedback-explanation"></p>
+            </div>
+            <button id="next-question" class="button button-dark" type="button">Næste spørgsmål <span aria-hidden="true">→</span></button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="result-screen" class="screen result-shell" hidden aria-labelledby="result-title">
+      <div class="result-hero">
+        <div class="page-width result-hero-grid">
+          <div>
+            <p class="overline overline-light"><span>Resultat</span> Din evaluering</p>
+            <h1 id="result-title"></h1>
+            <p id="result-summary"></p>
+            <button class="button button-light" type="button" data-start>Tag quizzen igen <span aria-hidden="true">↻</span></button>
+          </div>
+          <div class="score-card" aria-label="Samlet score">
+            <span>Din score</span>
+            <strong id="result-score">0</strong>
+            <b>af 22</b>
+            <small id="result-percentage">0% rigtige</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-width result-content">
+        <section aria-labelledby="profile-title">
+          <div class="result-heading">
+            <p class="overline"><span>01</span> Faglig profil</p>
+            <h2 id="profile-title">Sådan klarede du emnerne</h2>
+          </div>
+          <div id="category-breakdown" class="category-breakdown"></div>
+        </section>
+
+        <section class="review-section" aria-labelledby="review-title">
+          <div class="result-heading">
+            <p class="overline"><span>02</span> Facit</p>
+            <h2 id="review-title">Gennemgå alle spørgsmål</h2>
+          </div>
+          <div id="answer-review" class="answer-review"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-width footer-grid">
+      <img src="assets/images/next-logo.png" alt="NEXT Uddannelse København">
+      <p>Fagligt grundlag: <em>Anatomi – Underkroppens muskler</em> og <em>Fitness og styrketræning, 5. udgave (2024)</em>.</p>
+      <span>Fitness · Anatomi · 2026</span>
+    </div>
+  </footer>
 </body>
 </html>
