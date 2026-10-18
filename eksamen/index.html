@@ -1602,6 +1602,16 @@ h1:focus-visible {
 
 </style>
   <style>
+    /* Kontrolleret orddeling af den lange kategori på alle skærmstørrelser */
+    .split-category-heading,
+    .category-card h3,
+    #question-category,
+    .quiz-rail li { overflow-wrap: normal; word-break: normal; hyphens: manual; }
+    .topic-grid h3.split-category-heading { overflow-wrap: normal; }
+    .quiz-topbar-inner > div:first-child { min-width: 0; }
+    #question-category { line-height: 1.45; }
+    .category-card header { align-items: flex-start; }
+    .category-card h3 { min-width: 0; line-height: 1.1; }
     .hero-photo { filter: saturate(.7) brightness(.68); }
     .hero-overlay { background:linear-gradient(90deg,rgba(7,19,38,.99),rgba(7,19,38,.92) 43%,rgba(7,19,38,.4) 100%); }
     .hero h1 { font-size:clamp(55px,7.2vw,112px); }
@@ -1688,7 +1698,7 @@ h1:focus-visible {
           <article>
             <span class="topic-index">D</span>
             <div class="topic-icon" aria-hidden="true">▲</div>
-            <h3>Virksomhedsforståelse</h3>
+            <h3 class="split-category-heading">Virksomheds-<br>forståelse</h3>
             <p>Forretningsmodeller, SMART, de fire rette og forbrugerregler.</p>
           </article>
         </div>
@@ -2536,6 +2546,13 @@ window.NEXT_QUIZ = {
     "Virksomhedsforståelse": "Forretningsmodeller, SMART og forbrugerrettigheder"
   };
 
+  // Den lange kategorititel deles kun i visningen, ikke i quizdata eller resultatscoren.
+  function categoryLabel(category) {
+    return category === "Virksomhedsforståelse"
+      ? "Virksomheds-<br>forståelse"
+      : category;
+  }
+
   const elements = {
     intro: document.querySelector("#intro-screen"),
     quiz: document.querySelector("#quiz-screen"),
@@ -2611,7 +2628,7 @@ window.NEXT_QUIZ = {
       const item = document.createElement("li");
       const count = questions.filter((question) => question.category === category).length;
       item.classList.toggle("active", category === activeCategory);
-      item.append(document.createTextNode(category));
+      item.innerHTML = categoryLabel(category);
 
       const countElement = document.createElement("span");
       countElement.textContent = pad(count);
@@ -2629,7 +2646,7 @@ window.NEXT_QUIZ = {
     answered = false;
 
     elements.questionCounter.textContent = `Spørgsmål ${pad(questionNumber)} / ${pad(order.length)}`;
-    elements.questionCategory.textContent = question.category;
+    elements.questionCategory.innerHTML = categoryLabel(question.category);
     elements.progressBar.style.width = `${progressPercentage}%`;
     elements.progress.setAttribute("aria-valuenow", String(questionNumber));
 
@@ -2784,7 +2801,7 @@ window.NEXT_QUIZ = {
       card.className = "category-card";
       card.innerHTML = `
         <header>
-          <h3>${category}</h3>
+          <h3>${categoryLabel(category)}</h3>
           <strong>${correctAnswers}/${categoryQuestions.length}</strong>
         </header>
         <div class="category-track" aria-hidden="true"><span style="width:${categoryPercentage}%"></span></div>
