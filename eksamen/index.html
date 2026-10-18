@@ -6,9 +6,1601 @@
   <meta name="description" content="50 multiple choice-eksamensspørgsmål i afsætning D for NEXT GF2 Fitness, baseret på dokumentationsopgaven om SATS og PureGym.">
   <meta name="theme-color" content="#08162c">
   <title>NEXT Fitness · Eksamensquiz i afsætning D</title>
-  <link rel="stylesheet" href="../css/site.css">
-  <script src="questions.js" defer></script>
-  <script src="quiz.js" defer></script>
+  <style>
+@font-face {
+  font-family: "Next Display";
+  src: url("../assets/fonts/URWGothic-Demi.otf") format("opentype");
+  font-display: swap;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Next Sans";
+  src: url("../assets/fonts/NimbusSans-Regular.otf") format("opentype");
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Next Sans";
+  src: url("../assets/fonts/NimbusSans-Bold.otf") format("opentype");
+  font-display: swap;
+  font-weight: 700;
+}
+
+:root {
+  --navy-950: #071326;
+  --navy-900: #0b1b35;
+  --navy-800: #142b4e;
+  --orange-500: #ef4b23;
+  --orange-600: #d93d16;
+  --cream-100: #f5f0e8;
+  --cream-50: #fbf8f3;
+  --white: #ffffff;
+  --mint-300: #bfe8e3;
+  --ink: #090d18;
+  --muted: #606875;
+  --line: #d9d6cf;
+  --success: #087a5b;
+  --success-bg: #e4f4ed;
+  --danger: #b72d32;
+  --danger-bg: #f8e7e7;
+  --page: 1280px;
+  --shadow-lg: 0 28px 80px rgb(7 19 38 / 15%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--cream-100);
+  color: var(--ink);
+  font-family: "Next Sans", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible,
+h1:focus-visible {
+  outline: 4px solid #4d9cf5;
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 1000;
+  top: 12px;
+  left: 12px;
+  padding: 12px 16px;
+  transform: translateY(-150%);
+  background: var(--white);
+  color: var(--navy-950);
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.page-width {
+  width: min(var(--page), calc(100% - 72px));
+  margin-inline: auto;
+}
+
+.screen[hidden] {
+  display: none !important;
+}
+
+.masthead {
+  position: relative;
+  z-index: 20;
+  min-height: 96px;
+  display: grid;
+  grid-template-columns: 190px 1fr auto;
+  align-items: center;
+  gap: 32px;
+  padding: 14px max(36px, calc((100vw - var(--page)) / 2));
+  background: var(--white);
+  border-bottom: 1px solid rgb(7 19 38 / 14%);
+}
+
+.brand {
+  display: inline-flex;
+  width: fit-content;
+}
+
+.brand img {
+  width: 158px;
+  height: auto;
+  display: block;
+}
+
+.masthead-meta {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border-left: 1px solid var(--line);
+  padding-left: 26px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.masthead-meta span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.masthead-meta strong {
+  font-size: 12px;
+}
+
+.header-cta,
+.quiet-button {
+  border: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.header-cta {
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 34px;
+  padding: 0 18px 0 22px;
+  background: var(--navy-950);
+  color: var(--white);
+}
+
+.header-cta span {
+  color: var(--orange-500);
+  font-size: 20px;
+}
+
+.hero {
+  position: relative;
+  min-height: 760px;
+  height: calc(100vh - 96px);
+  max-height: 980px;
+  overflow: hidden;
+  display: grid;
+  align-items: center;
+  background: var(--navy-950);
+  color: var(--white);
+}
+
+.hero-photo,
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-photo {
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(90deg, rgb(7 19 38 / 98%) 0%, rgb(7 19 38 / 88%) 37%, rgb(7 19 38 / 30%) 67%, rgb(7 19 38 / 6%) 100%),
+    linear-gradient(0deg, rgb(7 19 38 / 75%) 0%, transparent 42%);
+}
+
+.hero-shape {
+  position: absolute;
+  pointer-events: none;
+}
+
+.hero-shape-one {
+  top: -120px;
+  left: 43%;
+  width: 280px;
+  height: 560px;
+  transform: rotate(38deg);
+  border: 1px solid rgb(191 232 227 / 34%);
+}
+
+.hero-shape-two {
+  right: -90px;
+  bottom: 80px;
+  width: 260px;
+  height: 260px;
+  background: var(--orange-500);
+  clip-path: polygon(0 0, 100% 50%, 0 100%, 25% 50%);
+  opacity: .88;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 98px;
+}
+
+.overline {
+  margin: 0 0 22px;
+  color: var(--orange-500);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.overline span {
+  display: inline-block;
+  margin-right: 12px;
+  padding: 7px 10px 6px;
+  background: var(--orange-500);
+  color: var(--white);
+}
+
+.overline-light {
+  color: var(--mint-300);
+}
+
+.overline-light span {
+  background: var(--mint-300);
+  color: var(--navy-950);
+}
+
+.hero h1,
+.process h2,
+.result-hero h1 {
+  margin: 0;
+  font-family: "Next Display", "Arial Black", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  max-width: 900px;
+  font-size: clamp(64px, 7.7vw, 124px);
+  line-height: .82;
+  letter-spacing: -.055em;
+}
+
+.hero h1 em {
+  color: var(--orange-500);
+  font-style: normal;
+}
+
+.hero-lead {
+  max-width: 670px;
+  margin: 34px 0 0;
+  color: #e4e9f0;
+  font-size: clamp(18px, 1.55vw, 23px);
+  line-height: 1.55;
+}
+
+.hero-actions {
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
+.button {
+  min-height: 58px;
+  min-width: 220px;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 16px 21px 15px 24px;
+  cursor: pointer;
+  color: var(--white);
+  font-weight: 700;
+  letter-spacing: .075em;
+  text-transform: uppercase;
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.button span {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.button:hover:not(:disabled) {
+  transform: translate(4px, 4px);
+}
+
+.button-primary {
+  background: var(--orange-500);
+  box-shadow: 9px 9px 0 var(--mint-300);
+}
+
+.button-primary:hover:not(:disabled) {
+  background: var(--orange-600);
+  box-shadow: 5px 5px 0 var(--mint-300);
+}
+
+.button-dark {
+  background: var(--navy-950);
+}
+
+.button-dark:hover:not(:disabled) {
+  background: var(--navy-800);
+}
+
+.button-light {
+  background: var(--white);
+  color: var(--navy-950);
+  box-shadow: 9px 9px 0 var(--orange-500);
+}
+
+.button-light:hover:not(:disabled) {
+  box-shadow: 5px 5px 0 var(--orange-500);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: .48;
+  box-shadow: none;
+}
+
+.text-link {
+  padding: 10px 0 8px;
+  color: var(--white);
+  border-bottom: 2px solid var(--orange-500);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.text-link span {
+  margin-left: 10px;
+  color: var(--orange-500);
+}
+
+.hero-stats {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 98px;
+  display: grid;
+  grid-template-columns: 150px 150px 170px 1fr;
+  align-items: stretch;
+  background: var(--cream-50);
+  color: var(--navy-950);
+}
+
+.hero-stats > div {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 25px 22px;
+  border-right: 1px solid var(--line);
+}
+
+.hero-stats strong {
+  font-family: "Next Display", sans-serif;
+  font-size: 34px;
+}
+
+.hero-stats span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.hero-stats p {
+  margin: 0;
+  align-self: center;
+  justify-self: end;
+  padding: 25px 30px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.overview {
+  padding-block: 126px 138px;
+}
+
+.section-intro {
+  display: grid;
+  grid-template-columns: minmax(360px, .92fr) 1.08fr;
+  column-gap: 80px;
+  align-items: end;
+}
+
+.section-intro .overline {
+  grid-column: 1 / -1;
+}
+
+.section-intro h2,
+.result-heading h2 {
+  margin: 0;
+  font-family: "Next Display", sans-serif;
+  font-size: clamp(46px, 5.4vw, 82px);
+  line-height: .92;
+  letter-spacing: -.05em;
+  text-transform: uppercase;
+}
+
+.section-intro > p:last-child {
+  max-width: 610px;
+  margin: 0;
+  padding-bottom: 5px;
+  color: #3e4550;
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+.topic-grid {
+  margin-top: 76px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 2px solid var(--navy-950);
+  border-bottom: 2px solid var(--navy-950);
+}
+
+.topic-grid article {
+  position: relative;
+  min-height: 330px;
+  padding: 28px 28px 32px;
+  border-right: 1px solid var(--line);
+  background: var(--cream-50);
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.topic-grid article:last-child {
+  border-right: 0;
+}
+
+.topic-grid article:hover {
+  z-index: 2;
+  transform: translateY(-8px);
+  background: var(--navy-950);
+  color: var(--white);
+}
+
+.topic-index {
+  color: var(--orange-500);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.topic-icon {
+  width: 76px;
+  height: 76px;
+  margin-top: 42px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--navy-950);
+  background: var(--mint-300);
+  color: var(--navy-950);
+  font-family: "Next Display", sans-serif;
+  font-size: 29px;
+}
+
+.topic-grid h3 {
+  margin: 32px 0 10px;
+  font-family: "Next Display", sans-serif;
+  font-size: 28px;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+}
+
+.topic-grid p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.topic-grid article:hover p {
+  color: #d9e0e9;
+}
+
+.process {
+  position: relative;
+  overflow: hidden;
+  padding-block: 118px;
+  background: var(--navy-950) url("../assets/images/next-pattern-dark.png") center / cover;
+  color: var(--white);
+}
+
+.process::after {
+  content: "";
+  position: absolute;
+  right: -80px;
+  bottom: -100px;
+  width: 320px;
+  height: 320px;
+  background: var(--orange-500);
+  clip-path: polygon(0 0, 100% 50%, 0 100%, 24% 50%);
+}
+
+.process-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap: 80px;
+}
+
+.process h2 {
+  font-size: clamp(50px, 5.4vw, 82px);
+  line-height: .92;
+  letter-spacing: -.05em;
+}
+
+.process-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgb(255 255 255 / 50%);
+}
+
+.process-list li {
+  min-height: 100px;
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  align-items: center;
+  gap: 18px;
+  border-bottom: 1px solid rgb(255 255 255 / 24%);
+}
+
+.process-list li > b {
+  color: var(--orange-500);
+  font-size: 12px;
+}
+
+.process-list li span {
+  display: grid;
+  gap: 7px;
+}
+
+.process-list strong {
+  font-family: "Next Display", sans-serif;
+  font-size: 23px;
+  text-transform: uppercase;
+}
+
+.process-list small {
+  color: #bcc7d5;
+  font-size: 15px;
+}
+
+.process .button {
+  grid-column: 2;
+  justify-self: start;
+}
+
+.quiz-shell {
+  min-height: calc(100vh - 96px);
+  padding-bottom: 100px;
+  background:
+    linear-gradient(120deg, transparent 0 75%, rgb(7 19 38 / 5%) 75% 100%),
+    var(--cream-100);
+}
+
+.quiz-topbar {
+  background: var(--navy-950);
+  color: var(--white);
+}
+
+.quiz-topbar-inner {
+  min-height: 78px;
+  display: grid;
+  grid-template-columns: 230px 1fr auto;
+  align-items: center;
+  gap: 30px;
+}
+
+.quiz-topbar-inner > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+#question-counter,
+#question-category {
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+#question-category {
+  padding-left: 18px;
+  border-left: 1px solid rgb(255 255 255 / 34%);
+  color: var(--mint-300);
+}
+
+.progress-track {
+  height: 7px;
+  overflow: hidden;
+  background: rgb(255 255 255 / 16%);
+}
+
+.progress-track span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--orange-500);
+  transition: width .28s ease;
+}
+
+.quiet-button {
+  padding: 12px 0 10px;
+  background: transparent;
+  color: var(--white);
+  border-bottom: 2px solid var(--orange-500);
+  font-size: 11px;
+}
+
+.quiz-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 54px;
+  padding-top: 68px;
+}
+
+.quiz-rail {
+  padding-top: 8px;
+}
+
+.rail-kicker {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.quiz-rail ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--navy-950);
+}
+
+.quiz-rail li {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.quiz-rail li.active {
+  color: var(--navy-950);
+}
+
+.quiz-rail li.active::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  margin-right: 2px;
+  background: var(--orange-500);
+}
+
+.quiz-rail li span {
+  margin-left: auto;
+  color: var(--orange-500);
+}
+
+.rail-note {
+  margin-top: 38px;
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 11px;
+  align-items: start;
+}
+
+.rail-note > span {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--navy-950);
+  color: var(--white);
+  font-family: serif;
+  font-weight: 700;
+}
+
+.rail-note p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.question-panel {
+  min-height: 640px;
+  padding: clamp(42px, 5.2vw, 72px);
+  background: var(--white);
+  border-top: 10px solid var(--navy-950);
+  box-shadow: var(--shadow-lg);
+}
+
+.question-panel > h1 {
+  max-width: 910px;
+  margin: 0 0 42px;
+  font-family: "Next Display", sans-serif;
+  font-size: clamp(38px, 4vw, 62px);
+  line-height: 1.02;
+  letter-spacing: -.045em;
+}
+
+.answer-list {
+  display: grid;
+  gap: 13px;
+}
+
+.answer-option {
+  width: 100%;
+  min-height: 72px;
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr) 38px;
+  align-items: center;
+  gap: 17px;
+  padding: 10px 16px 10px 10px;
+  border: 2px solid #d6d8dc;
+  background: var(--white);
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+  font-size: 17px;
+  line-height: 1.35;
+  transition: border-color .15s ease, background .15s ease, transform .15s ease;
+}
+
+.answer-option:hover:not(:disabled) {
+  transform: translateX(5px);
+  border-color: var(--navy-950);
+}
+
+.answer-option:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.answer-letter {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  background: var(--cream-100);
+  font-family: "Next Display", sans-serif;
+  font-size: 16px;
+}
+
+.answer-state {
+  text-align: center;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.answer-option.selected {
+  border-color: var(--navy-950);
+  background: #edf2f8;
+}
+
+.answer-option.selected .answer-letter {
+  background: var(--navy-950);
+  color: var(--white);
+}
+
+.answer-option.correct {
+  border-color: var(--success);
+  background: var(--success-bg);
+}
+
+.answer-option.correct .answer-letter {
+  background: var(--success);
+  color: var(--white);
+}
+
+.answer-option.wrong {
+  border-color: var(--danger);
+  background: var(--danger-bg);
+}
+
+.answer-option.wrong .answer-letter {
+  background: var(--danger);
+  color: var(--white);
+}
+
+.question-action {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.question-action p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.feedback-panel {
+  margin-top: 30px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 58px 1fr auto;
+  align-items: center;
+  gap: 20px;
+  border-left: 8px solid;
+}
+
+.feedback-panel.is-correct {
+  border-color: var(--success);
+  background: var(--success-bg);
+}
+
+.feedback-panel.is-wrong {
+  border-color: var(--danger);
+  background: var(--danger-bg);
+}
+
+.feedback-symbol {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--white);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.is-correct .feedback-symbol {
+  background: var(--success);
+}
+
+.is-wrong .feedback-symbol {
+  background: var(--danger);
+}
+
+.feedback-copy > p:first-child {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.feedback-copy h2 {
+  margin: 0 0 7px;
+  font-family: "Next Display", sans-serif;
+  font-size: 27px;
+  text-transform: uppercase;
+}
+
+.feedback-copy > p:last-child {
+  max-width: 610px;
+  margin: 0;
+  color: #3f4650;
+  line-height: 1.55;
+}
+
+.feedback-panel .button {
+  min-width: 205px;
+  box-shadow: none;
+}
+
+.result-shell {
+  background: var(--cream-100);
+}
+
+.result-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: 92px;
+  background: var(--navy-950) url("../assets/images/next-pattern-dark.png") center / cover;
+  color: var(--white);
+}
+
+.result-hero::after {
+  content: "";
+  position: absolute;
+  right: -80px;
+  bottom: -40px;
+  width: 360px;
+  height: 360px;
+  background: var(--orange-500);
+  clip-path: polygon(0 0, 100% 50%, 0 100%, 24% 50%);
+}
+
+.result-hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  align-items: center;
+  gap: 76px;
+}
+
+.result-hero h1 {
+  max-width: 800px;
+  font-size: clamp(58px, 7vw, 102px);
+  line-height: .86;
+  letter-spacing: -.055em;
+}
+
+.result-hero-grid > div:first-child > p:not(.overline) {
+  max-width: 680px;
+  margin: 30px 0 35px;
+  color: #dce4ee;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.score-card {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 10px solid var(--mint-300);
+  border-radius: 50%;
+  background: rgb(7 19 38 / 72%);
+}
+
+.score-card > span {
+  margin-bottom: 9px;
+  color: var(--mint-300);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.score-card strong {
+  color: var(--orange-500);
+  font-family: "Next Display", sans-serif;
+  font-size: 112px;
+  line-height: .78;
+}
+
+.score-card b {
+  margin-top: 13px;
+  font-size: 23px;
+  text-transform: uppercase;
+}
+
+.score-card small {
+  margin-top: 12px;
+  color: var(--mint-300);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.result-content {
+  padding-block: 112px 130px;
+}
+
+.result-heading {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 42px;
+}
+
+.result-heading .overline {
+  margin: 0;
+}
+
+.result-heading h2 {
+  font-size: clamp(44px, 5vw, 72px);
+}
+
+.category-breakdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.category-card {
+  min-height: 170px;
+  padding: 24px;
+  background: var(--white);
+  border-top: 7px solid var(--navy-950);
+  box-shadow: 0 12px 35px rgb(7 19 38 / 7%);
+}
+
+.category-card header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.category-card h3 {
+  margin: 0;
+  font-family: "Next Display", sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.category-card strong {
+  color: var(--orange-500);
+  font-size: 19px;
+}
+
+.category-track {
+  height: 8px;
+  margin-top: 28px;
+  overflow: hidden;
+  background: #e3e0da;
+}
+
+.category-track span {
+  display: block;
+  height: 100%;
+  background: var(--orange-500);
+}
+
+.category-card p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.review-section {
+  margin-top: 108px;
+}
+
+.answer-review {
+  border-top: 2px solid var(--navy-950);
+}
+
+.answer-review details {
+  background: rgb(255 255 255 / 48%);
+  border-bottom: 1px solid #c6c6c1;
+}
+
+.answer-review summary {
+  min-height: 82px;
+  padding: 14px 18px;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 28px;
+  align-items: center;
+  gap: 17px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.answer-review summary::-webkit-details-marker {
+  display: none;
+}
+
+.review-status {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.review-status.correct {
+  background: var(--success);
+}
+
+.review-status.wrong {
+  background: var(--danger);
+}
+
+.review-title small {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.review-title strong {
+  line-height: 1.35;
+}
+
+.review-plus {
+  font-size: 28px;
+  transition: transform .18s ease;
+}
+
+.answer-review details[open] .review-plus {
+  transform: rotate(45deg);
+}
+
+.review-body {
+  padding: 0 72px 28px 75px;
+}
+
+.review-body p {
+  margin: 11px 0;
+  line-height: 1.55;
+}
+
+.review-body label {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--orange-500);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.review-explanation {
+  padding-top: 13px;
+  border-top: 1px solid var(--line);
+  color: #414852;
+}
+
+.site-footer {
+  background: var(--white);
+  border-top: 1px solid var(--line);
+}
+
+.footer-grid {
+  min-height: 190px;
+  display: grid;
+  grid-template-columns: 190px 1fr auto;
+  align-items: center;
+  gap: 46px;
+}
+
+.footer-grid img {
+  width: 158px;
+}
+
+.footer-grid p {
+  max-width: 680px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.footer-grid > span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1050px) {
+  .page-width {
+    width: min(var(--page), calc(100% - 44px));
+  }
+
+  .masthead {
+    padding-inline: 22px;
+  }
+
+  .hero h1 {
+    font-size: clamp(62px, 9.4vw, 100px);
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(90deg, rgb(7 19 38 / 98%) 0%, rgb(7 19 38 / 85%) 50%, rgb(7 19 38 / 22%) 100%),
+      linear-gradient(0deg, rgb(7 19 38 / 80%) 0%, transparent 48%);
+  }
+
+  .section-intro {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .topic-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .topic-grid article:nth-child(2) {
+    border-right: 0;
+  }
+
+  .topic-grid article:nth-child(-n+2) {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .quiz-layout {
+    grid-template-columns: 170px minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .feedback-panel {
+    grid-template-columns: 54px 1fr;
+  }
+
+  .feedback-panel .button {
+    grid-column: 1 / -1;
+    justify-self: end;
+  }
+}
+
+@media (max-width: 800px) {
+  .masthead {
+    grid-template-columns: 150px 1fr auto;
+    min-height: 82px;
+  }
+
+  .brand img {
+    width: 132px;
+  }
+
+  .masthead-meta span {
+    display: none;
+  }
+
+  .masthead-meta {
+    padding-left: 18px;
+  }
+
+  .header-cta {
+    min-width: 48px;
+    padding: 0 15px;
+    gap: 0;
+    font-size: 0;
+  }
+
+  .header-cta span {
+    font-size: 23px;
+  }
+
+  .hero {
+    min-height: 800px;
+    height: calc(100vh - 82px);
+  }
+
+  .hero-photo {
+    object-position: 62% center;
+  }
+
+  .hero-content {
+    padding-bottom: 178px;
+  }
+
+  .hero h1 {
+    font-size: clamp(57px, 11vw, 86px);
+  }
+
+  .hero-lead {
+    max-width: 560px;
+  }
+
+  .hero-stats {
+    width: calc(100% - 44px);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero-stats p {
+    display: none;
+  }
+
+  .hero-stats > div {
+    justify-content: center;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .process .button {
+    grid-column: 1;
+  }
+
+  .quiz-topbar-inner {
+    grid-template-columns: 1fr auto;
+  }
+
+  .progress-track {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+
+  .quiz-layout {
+    grid-template-columns: 1fr;
+    padding-top: 34px;
+  }
+
+  .quiz-rail {
+    display: none;
+  }
+
+  .result-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .score-card {
+    width: min(330px, 100%);
+    justify-self: center;
+  }
+
+  .category-breakdown {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .result-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 160px 1fr;
+  }
+
+  .footer-grid > span {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-width {
+    width: calc(100% - 28px);
+  }
+
+  .masthead {
+    grid-template-columns: 120px 1fr 46px;
+    gap: 12px;
+    min-height: 74px;
+    padding-inline: 14px;
+  }
+
+  .brand img {
+    width: 112px;
+  }
+
+  .masthead-meta {
+    min-height: 32px;
+    padding-left: 12px;
+  }
+
+  .masthead-meta strong {
+    font-size: 9px;
+  }
+
+  .header-cta {
+    min-height: 44px;
+    min-width: 44px;
+    padding-inline: 12px;
+  }
+
+  .hero {
+    min-height: 760px;
+    height: auto;
+  }
+
+  .hero-photo {
+    object-position: 67% center;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(90deg, rgb(7 19 38 / 97%) 0%, rgb(7 19 38 / 78%) 100%),
+      linear-gradient(0deg, rgb(7 19 38 / 90%) 0%, transparent 50%);
+  }
+
+  .hero-content {
+    padding-block: 78px 195px;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 15vw, 68px);
+    line-height: .86;
+  }
+
+  .hero-lead {
+    margin-top: 25px;
+    font-size: 17px;
+  }
+
+  .hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .hero-stats {
+    min-height: 120px;
+    width: calc(100% - 28px);
+  }
+
+  .hero-stats > div {
+    align-items: center;
+    flex-direction: column;
+    gap: 2px;
+    padding-inline: 6px;
+    text-align: center;
+  }
+
+  .hero-stats strong {
+    font-size: 28px;
+  }
+
+  .hero-stats span {
+    font-size: 9px;
+  }
+
+  .overview {
+    padding-block: 88px;
+  }
+
+  .section-intro h2,
+  .result-heading h2 {
+    font-size: 48px;
+  }
+
+  .section-intro > p:last-child {
+    font-size: 17px;
+  }
+
+  .topic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topic-grid article,
+  .topic-grid article:nth-child(2) {
+    min-height: 285px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .process {
+    padding-block: 86px;
+  }
+
+  .process h2 {
+    font-size: 49px;
+  }
+
+  .process-list li {
+    grid-template-columns: 50px 1fr;
+  }
+
+  .quiz-topbar-inner {
+    width: calc(100% - 28px);
+  }
+
+  .question-panel {
+    min-height: 0;
+    padding: 30px 17px;
+  }
+
+  .question-panel > h1 {
+    margin-bottom: 30px;
+    font-size: 34px;
+  }
+
+  .answer-option {
+    min-height: 66px;
+    grid-template-columns: 42px minmax(0, 1fr) 28px;
+    gap: 11px;
+    padding-right: 8px;
+    font-size: 15px;
+  }
+
+  .answer-letter {
+    width: 40px;
+    height: 40px;
+  }
+
+  .question-action {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .feedback-panel {
+    grid-template-columns: 1fr;
+    padding: 19px;
+  }
+
+  .feedback-panel .button {
+    grid-column: 1;
+  }
+
+  .result-hero {
+    padding-block: 70px;
+  }
+
+  .result-hero h1 {
+    font-size: 57px;
+  }
+
+  .score-card strong {
+    font-size: 92px;
+  }
+
+  .result-content {
+    padding-block: 86px 100px;
+  }
+
+  .category-breakdown {
+    grid-template-columns: 1fr;
+  }
+
+  .review-section {
+    margin-top: 82px;
+  }
+
+  .answer-review summary {
+    grid-template-columns: 36px minmax(0, 1fr) 22px;
+    gap: 11px;
+    padding-inline: 7px;
+  }
+
+  .review-body {
+    padding: 0 12px 25px 54px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-block: 42px;
+  }
+
+  .footer-grid p,
+  .footer-grid > span {
+    grid-column: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+</style>
   <style>
     .hero-photo { filter: saturate(.7) brightness(.68); }
     .hero-overlay { background:linear-gradient(90deg,rgba(7,19,38,.99),rgba(7,19,38,.92) 43%,rgba(7,19,38,.4) 100%); }
@@ -19,6 +1611,7 @@
     @media(max-width:1000px){.category-breakdown{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:560px){.category-breakdown{grid-template-columns:1fr}.hero h1{font-size:clamp(48px,13vw,70px)}}
   </style>
+<meta name="version" content="2-20261018">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Gå til indhold</a>
@@ -208,5 +1801,1078 @@
       <span>Fitness · Afsætning D · 2026</span>
     </div>
   </footer>
+<noscript><p style="padding:28px;background:#ffded3;color:#071326">JavaScript skal være slået til for at gennemføre quizzen.</p></noscript>
+<script>
+/* GF2 Fitness · Afsætning D · Eksamensquiz; emner baseret på dokumentationsopgaven om SATS/PureGym. */
+window.NEXT_QUIZ = {
+  "title": "Eksamensquiz · Afsætning D",
+  "version": 1,
+  "categories": [
+    "Marketingmix",
+    "Marked og kunder",
+    "Kundeservice",
+    "Virksomhedsforståelse"
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "category": "Marketingmix",
+      "muscle": "De fire P'er",
+      "question": "Hvilke fire elementer indgår i marketingmixet?",
+      "options": [
+        "Produkt, pris, place og promotion",
+        "Produkt, personale, proces og politik",
+        "Pris, produktion, profit og personale",
+        "Position, potentiale, plan og profit"
+      ],
+      "correct": 0,
+      "explanation": "De klassiske fire P'er er Product, Price, Place og Promotion. De beskriver centrale beslutninger, virksomheden selv kan påvirke. (Dokumentationsopgaven, side 1)."
+    },
+    {
+      "id": 2,
+      "category": "Marketingmix",
+      "muscle": "Produkt",
+      "question": "Hvad er SATS' primære produkt i afsætningsmæssig forstand?",
+      "options": [
+        "Ejerskab til træningsmaskiner",
+        "Adgang til træningsfaciliteter og relaterede serviceydelser",
+        "Udelukkende salg af kosttilskud",
+        "Kun personlige træningsprogrammer"
+      ],
+      "correct": 1,
+      "explanation": "SATS sælger først og fremmest adgang og service, eksempelvis træningsfaciliteter, hold og mulighed for personlig træning. (Dokumentationsopgaven, side 1)."
+    },
+    {
+      "id": 3,
+      "category": "Marketingmix",
+      "muscle": "Pris",
+      "question": "Hvad er vigtigt, når du sammenligner prisen på SATS og PureGym?",
+      "options": [
+        "Kun den lavest annoncerede pris",
+        "Kun oprettelsesgebyret",
+        "At adgang, hold, binding og eventuelle tillæg er sammenlignelige",
+        "At vælge kæden med flest centre i udlandet"
+      ],
+      "correct": 2,
+      "explanation": "Et billigt indgangsabonnement kan blive dyrere, hvis nødvendige ydelser koster ekstra. Sammenlign samme værdi og faktiske lokale betingelser. (Dokumentationsopgaven, side 1–2)."
+    },
+    {
+      "id": 4,
+      "category": "Marketingmix",
+      "muscle": "Place",
+      "question": "Hvad betyder 'Place' i et fitnesscenters marketingmix?",
+      "options": [
+        "Farverne i reklamerne",
+        "Geografisk placering, tilgængelighed og adgang til centre",
+        "Om medarbejderen smiler ved receptionen",
+        "Kædens overskud"
+      ],
+      "correct": 1,
+      "explanation": "Place handler om, hvor og hvordan kunden får adgang til ydelsen. Afstand, transport og hvilke centre medlemskabet omfatter, er centrale forhold. (Dokumentationsopgaven, side 1)."
+    },
+    {
+      "id": 5,
+      "category": "Marketingmix",
+      "muscle": "Promotion",
+      "question": "Hvilket eksempel er tydeligst en promotionsaktivitet?",
+      "options": [
+        "Udskiftning af en defekt træningsmaskine",
+        "En målrettet annonce for nye hold og introduktionstilbud",
+        "Betaling af husleje",
+        "Udvidelse af omklædningsrum"
+      ],
+      "correct": 1,
+      "explanation": "Promotion omfatter virksomhedens markedsføring og kommunikation, eksempelvis annoncer, kampagner og information om tilbud. (Dokumentationsopgaven, side 1)."
+    },
+    {
+      "id": 6,
+      "category": "Marketingmix",
+      "muscle": "Omkostningsbaseret pris",
+      "question": "Et center har relevante omkostninger på 300.000 kr. pr. måned og 1.200 betalende medlemmer. Hvor meget skal hvert medlem i gennemsnit betale for at dække netop disse omkostninger?",
+      "options": [
+        "150 kr.",
+        "200 kr.",
+        "250 kr.",
+        "350 kr."
+      ],
+      "correct": 2,
+      "explanation": "300.000 divideret med 1.200 giver 250 kr. pr. medlem. Det er et hypotetisk dækningsregnestykke, ikke PureGyms faktiske omkostninger eller endelige pris. (Dokumentationsopgaven, side 2)."
+    },
+    {
+      "id": 7,
+      "category": "Marketingmix",
+      "muscle": "Konkurrencebaseret pris",
+      "question": "Hvad er udgangspunktet ved konkurrencebaseret prisfastsættelse?",
+      "options": [
+        "Kundens følelse af eksklusivitet alene",
+        "Lønnen til receptionisten alene",
+        "Lokale konkurrenters sammenlignelige priser og ydelser",
+        "Kun virksomhedens historiske omkostninger"
+      ],
+      "correct": 2,
+      "explanation": "Virksomheden sammenholder sit tilbud med konkurrerende lokale alternativer, herunder adgang, binding og tilvalg. (Dokumentationsopgaven, side 2)."
+    },
+    {
+      "id": 8,
+      "category": "Marketingmix",
+      "muscle": "Værdibaseret pris",
+      "question": "Hvornår kan et dyrere fitnessmedlemskab være værdibaseret prissat?",
+      "options": [
+        "Når prisen sættes tilfældigt",
+        "Når kunderne oplever tilstrækkelig merværdi i fx flere centre og hold",
+        "Når alle kunder automatisk får samme pris",
+        "Når omkostninger ikke længere eksisterer"
+      ],
+      "correct": 1,
+      "explanation": "Ved værdibaseret prisfastsættelse tager man udgangspunkt i kundens oplevede betalingsvillighed for ekstra fordele. (Dokumentationsopgaven, side 2)."
+    },
+    {
+      "id": 9,
+      "category": "Marketingmix",
+      "muscle": "Funktionel kvalitet",
+      "question": "Hvad er et eksempel på funktionel kvalitet i SATS?",
+      "options": [
+        "Et moderigtigt logo",
+        "Musiksmag i centret",
+        "Velfungerende udstyr, sikkerhed og pålidelig booking",
+        "Et medlems prestige blandt venner"
+      ],
+      "correct": 2,
+      "explanation": "Funktionel kvalitet vedrører, om ydelsen fungerer efter hensigten, eksempelvis maskinernes stand, sikkerhed, rengøring og booking. (Dokumentationsopgaven, side 2)."
+    },
+    {
+      "id": 10,
+      "category": "Marketingmix",
+      "muscle": "Smagsmæssig kvalitet",
+      "question": "Hvilket forhold er især smagsmæssig eller æstetisk kvalitet?",
+      "options": [
+        "Om træningsudstyret er sikkert",
+        "Lys, musik og indretning i centret",
+        "Om åbningstiderne overholdes",
+        "Om medlemsprisen er oplyst korrekt"
+      ],
+      "correct": 1,
+      "explanation": "Smagsmæssig kvalitet handler om subjektive sanseindtryk og æstetik. En kunde kan lide musikken, mens en anden ikke gør. (Dokumentationsopgaven, side 2)."
+    },
+    {
+      "id": 11,
+      "category": "Marketingmix",
+      "muscle": "Imagemæssig kvalitet",
+      "question": "Hvad dækker imagemæssig kvalitet primært over?",
+      "options": [
+        "Brandets omdømme og signalværdi",
+        "Antallet af fungerende løbebånd",
+        "De faste omkostninger",
+        "Den præcise åbningstid"
+      ],
+      "correct": 0,
+      "explanation": "Image handler om, hvordan mærket opleves og passer til kundens identitet. Et stærkt image beviser ikke automatisk højere teknisk kvalitet. (Dokumentationsopgaven, side 2)."
+    },
+    {
+      "id": 12,
+      "category": "Marketingmix",
+      "muscle": "Sortimentsbredde",
+      "question": "Hvad menes der med sortimentsbredde?",
+      "options": [
+        "Antallet af ansatte i virksomheden",
+        "Hvor mange forskellige varegrupper virksomheden tilbyder",
+        "Antallet af varianter inden for én varegruppe",
+        "Hvor mange butikker der findes"
+      ],
+      "correct": 1,
+      "explanation": "Sortimentsbredde er antallet af varegrupper, for eksempel sko, tøj og sportsudstyr. (Dokumentationsopgaven, side 3)."
+    },
+    {
+      "id": 13,
+      "category": "Marketingmix",
+      "muscle": "Sortimentsdybde",
+      "question": "Hvad betyder sortimentsdybde?",
+      "options": [
+        "Hvor mange varianter der findes inden for en varegruppe",
+        "Hvor højt butikken ligger over havet",
+        "Hvor mange branchekonkurrenter der findes",
+        "Hvor store varelagrene er"
+      ],
+      "correct": 0,
+      "explanation": "Sortimentsdybde handler om udvalg af varianter inden for samme varegruppe, eksempelvis smage, størrelser eller modeller. (Dokumentationsopgaven, side 3)."
+    },
+    {
+      "id": 14,
+      "category": "Marketingmix",
+      "muscle": "Nike og Bodylab",
+      "question": "Hvilken sortimentsvurdering er mest rimelig ud fra opgaven?",
+      "options": [
+        "Nike er smalt og uden varianter",
+        "Bodylab sælger præcis lige så mange varegrupper som Nike",
+        "Nike er bredt og dybt; Bodylab relativt smalt, men dybt",
+        "SATS' aktuelle tøjkollektion er dokumenteret større end Nikes"
+      ],
+      "correct": 2,
+      "explanation": "Nike dækker mange sportskategorier og varianter. Bodylab er mere specialiseret i ernæring og kosttilskud med mange varianter. Opgaven verificerer ikke SATS' aktuelle tøjkollektion. (Dokumentationsopgaven, side 3)."
+    },
+    {
+      "id": 15,
+      "category": "Marked og kunder",
+      "muscle": "Positioneringskort",
+      "question": "Hvad viser et positioneringskort?",
+      "options": [
+        "Den præcise objektive tekniske kvalitet",
+        "Hvordan tilbud placeres i forhold til udvalgte dimensioner, fx pris og oplevet service",
+        "Kun virksomhedernes skatteregnskaber",
+        "Hvor medlemmerne bor på et landkort"
+      ],
+      "correct": 1,
+      "explanation": "Et positioneringskort illustrerer kundernes opfattelse langs eksempelvis pris og serviceomfang. Placeringer bør efterprøves med data. (Dokumentationsopgaven, side 3)."
+    },
+    {
+      "id": 16,
+      "category": "Marked og kunder",
+      "muscle": "SWOT: Styrke",
+      "question": "Hvilket forhold vil typisk være en intern styrke for SATS i en SWOT-analyse?",
+      "options": [
+        "Stigende lokal interesse for træning",
+        "Flere medlemsniveauer og et bredt holdtilbud",
+        "Nye konkurrenter i lokalområdet",
+        "Ændrede offentlige regler"
+      ],
+      "correct": 1,
+      "explanation": "Styrker og svagheder er interne forhold. SATS' eksisterende tilbud, træningsfaciliteter og kompetencer er interne ressourcer. (Dokumentationsopgaven, side 3)."
+    },
+    {
+      "id": 17,
+      "category": "Marked og kunder",
+      "muscle": "SWOT: Svaghed",
+      "question": "Hvilket eksempel er en mulig intern svaghed?",
+      "options": [
+        "Et dyrere medlemskab kan afskrække prisfølsomme kunder",
+        "Øget sundhedsinteresse i samfundet",
+        "Stigende konkurrence fra hjemmetræning",
+        "En ny konkurrent åbner i nabogaden"
+      ],
+      "correct": 0,
+      "explanation": "En relativt høj lokal listepris er et forhold ved virksomhedens eget tilbud og kan være en svaghed i et prisfølsomt segment. (Dokumentationsopgaven, side 3)."
+    },
+    {
+      "id": 18,
+      "category": "Marked og kunder",
+      "muscle": "SWOT: Mulighed",
+      "question": "Hvad er en ekstern mulighed for SATS?",
+      "options": [
+        "Kædens nuværende booking-app",
+        "Personalets nuværende kompetencer",
+        "Stigende efterspørgsel efter fleksible træningsforløb",
+        "Et center med slidt udstyr"
+      ],
+      "correct": 2,
+      "explanation": "Muligheder kommer fra omverdenen og kan udnyttes, eksempelvis ændrede kundeønsker eller stigende efterspørgsel. (Dokumentationsopgaven, side 3)."
+    },
+    {
+      "id": 19,
+      "category": "Marked og kunder",
+      "muscle": "SWOT: Trussel",
+      "question": "Hvilket forhold er en ekstern trussel?",
+      "options": [
+        "SATS' eksisterende holdinstruktører",
+        "Kædens egen prissætning",
+        "Manglende rengøring i et bestemt SATS-center",
+        "Konkurrence fra hjemmetræning og alternative idrætstilbud"
+      ],
+      "correct": 3,
+      "explanation": "Trusler findes uden for virksomhedens direkte kontrol, eksempelvis konkurrenter eller erstatningsprodukter. (Dokumentationsopgaven, side 3)."
+    },
+    {
+      "id": 20,
+      "category": "Marked og kunder",
+      "muscle": "Snæver konkurrence",
+      "question": "Hvilket par er et eksempel på snæver konkurrence?",
+      "options": [
+        "SATS og PureGym",
+        "SATS og en boghandel",
+        "SATS og et møbelfirma",
+        "SATS og et flyselskab"
+      ],
+      "correct": 0,
+      "explanation": "Snæver konkurrence er udbydere af omtrent samme ydelse til samme behov, som SATS og PureGym. (Dokumentationsopgaven, side 4)."
+    },
+    {
+      "id": 21,
+      "category": "Marked og kunder",
+      "muscle": "Bred konkurrence",
+      "question": "Hvilket tilbud kan være en bred konkurrent til et fitnessmedlemskab?",
+      "options": [
+        "En anden type shampoo",
+        "Løb i lokal idrætsforening",
+        "En bilforsikring",
+        "En kontorstol"
+      ],
+      "correct": 1,
+      "explanation": "Bred konkurrence er forskellige måder at dække det samme grundlæggende behov på. Idrætsforening, svømning og hjemmetræning kan konkurrere med fitness. (Dokumentationsopgaven, side 4)."
+    },
+    {
+      "id": 22,
+      "category": "Marked og kunder",
+      "muscle": "Effektivt marked",
+      "question": "Hvad kendetegner det effektive marked?",
+      "options": [
+        "Alle mennesker, der kunne tænke sig at træne",
+        "Personer, der faktisk efterspørger og køber medlemskab under de gældende vilkår",
+        "Alle under 30 år",
+        "Kun kunder med Premium-abonnement"
+      ],
+      "correct": 1,
+      "explanation": "Det effektive marked rummer den efterspørgsel, der reelt omsættes til køb under aktuelle vilkår. (Dokumentationsopgaven, side 4)."
+    },
+    {
+      "id": 23,
+      "category": "Marked og kunder",
+      "muscle": "Latent marked",
+      "question": "Hvem passer bedst til det latente marked?",
+      "options": [
+        "En nuværende betalende kunde",
+        "En person, der aldrig vil motionere",
+        "En potentiel kunde, som vil købe medlemskab, hvis pris eller afstand bliver mere overkommelig",
+        "En eksisterende medarbejder"
+      ],
+      "correct": 2,
+      "explanation": "Latente kunder har et potentiale, men en barriere kan hindre køb. Behov alene er dog ikke nok; betalingsmulighed og vilje spiller også ind. (Dokumentationsopgaven, side 4)."
+    },
+    {
+      "id": 24,
+      "category": "Marked og kunder",
+      "muscle": "Duopol",
+      "question": "Betyder en sammenligning af SATS og PureGym, at det danske fitnessmarked er et duopol?",
+      "options": [
+        "Ja, to nævnte kæder betyder altid duopol",
+        "Ja, hvis de begge sælger holdtræning",
+        "Nej, fordi der findes flere udbydere; markedsform kræver afgrænsning og data",
+        "Nej, fordi duopol betyder én udbyder"
+      ],
+      "correct": 2,
+      "explanation": "Duopol betyder to centrale udbydere på et afgrænset marked. En case med to virksomheder dokumenterer ikke, at andre aktører mangler. (Dokumentationsopgaven, side 4)."
+    },
+    {
+      "id": 25,
+      "category": "Marked og kunder",
+      "muscle": "Markedsformer",
+      "question": "Hvorfor passer modellen 'fuldkommen konkurrence' dårligt på fitnesscentre?",
+      "options": [
+        "Fordi fitnesskæder har forskellige beliggenheder, faciliteter og serviceydelser",
+        "Fordi alle centre sælger præcis det samme",
+        "Fordi der kun findes ét center i Danmark",
+        "Fordi medlemmer aldrig sammenligner priser"
+      ],
+      "correct": 0,
+      "explanation": "Fuldkommen konkurrence forudsætter bl.a. ensartede produkter. Fitnesscentre differentierer sig på beliggenhed og service; monopolistisk konkurrence kan være en relevant model. (Dokumentationsopgaven, side 4)."
+    },
+    {
+      "id": 26,
+      "category": "Marked og kunder",
+      "muscle": "Konkurrenceposition",
+      "question": "Hvad er en nichespiller på fitnessmarkedet?",
+      "options": [
+        "Den virksomhed med flest medlemmer i hele landet",
+        "En udbyder, der specialiserer sig i fx reformer eller vægtløftning",
+        "En virksomhed uden kunder",
+        "Enhver virksomhed med en app"
+      ],
+      "correct": 1,
+      "explanation": "En nichespiller fokuserer på en mere afgrænset kundegruppe eller aktivitet i stedet for at tilbyde alt til alle. (Dokumentationsopgaven, side 4)."
+    },
+    {
+      "id": 27,
+      "category": "Marked og kunder",
+      "muscle": "Maslows behov",
+      "question": "Hvilket eksempel knytter tydeligst træning til Maslows sociale behov?",
+      "options": [
+        "At deltage i et holdfællesskab",
+        "At kende centrets elregning",
+        "At købe en vare for at videresælge den",
+        "At beregne en markedsandel"
+      ],
+      "correct": 0,
+      "explanation": "Træning kan opfylde sociale behov gennem fællesskab og tilhørsforhold på hold. Maslow er en fortolkningsmodel, ikke en fast lov om alle kunder. (Dokumentationsopgaven, side 4)."
+    },
+    {
+      "id": 28,
+      "category": "Marked og kunder",
+      "muscle": "Segmentering",
+      "question": "Hvilken kombination passer til henholdsvis geografisk og psykografisk segmentering?",
+      "options": [
+        "Alder og indkomst",
+        "Afstand til center og motivation for træning",
+        "Antal medarbejdere og omsætning",
+        "Åbningstid og månedlig elpris"
+      ],
+      "correct": 1,
+      "explanation": "Geografi beskriver eksempelvis bopæl og afstand. Psykografi beskriver holdninger, livsstil, værdier og motivation. (Dokumentationsopgaven, side 4)."
+    },
+    {
+      "id": 29,
+      "category": "Marked og kunder",
+      "muscle": "Livsstilsmodeller",
+      "question": "Hvordan bør SATS anvende Minerva-modellen?",
+      "options": [
+        "Som sikkert bevis for alle medlemmers værdier",
+        "Til at tildele enhver kunde en bestemt farve uden data",
+        "Som idéværktøj, der bør suppleres med konkret undersøgelse af målgruppen",
+        "Som metode til at beregne centrenes faste omkostninger"
+      ],
+      "correct": 2,
+      "explanation": "Minerva kan støtte idéudvikling, men opgaven dokumenterer ikke en bestemt farveprofil for SATS' medlemmer. (Dokumentationsopgaven, side 5)."
+    },
+    {
+      "id": 30,
+      "category": "Marked og kunder",
+      "muscle": "Køberoller og B2B",
+      "question": "Hvem er typisk brugeren af et firmabetalt fitnessmedlemskab, selv om HR eller ledelsen beslutter købet?",
+      "options": [
+        "Medarbejderen",
+        "Virksomhedens bank",
+        "Centrenes udstyrsleverandør",
+        "Skatteforvaltningen"
+      ],
+      "correct": 0,
+      "explanation": "På B2B-markedet kan køber, beslutningstager og bruger være forskellige. HR eller ledelse kan beslutte, mens medarbejderne bruger aftalen. (Dokumentationsopgaven, side 5)."
+    },
+    {
+      "id": 31,
+      "category": "Kundeservice",
+      "muscle": "Første besøg",
+      "question": "Hvordan bør SATS modtage en potentiel kunde, der besøger centret første gang?",
+      "options": [
+        "Kun henvise til hjemmesiden",
+        "Give personlig introduktion og tydelig information om træning, priser og regler",
+        "Straks kræve underskrift uden spørgsmål",
+        "Undgå at spørge til kundens behov"
+      ],
+      "correct": 1,
+      "explanation": "En god modtagelse afklarer kundens mål og erfaring, viser relevante faciliteter og forklarer medlemskab og regler uden pres. (Dokumentationsopgaven, side 5)."
+    },
+    {
+      "id": 32,
+      "category": "Kundeservice",
+      "muscle": "Faste kunder",
+      "question": "Hvilken betjeningsform passer ofte til faste medlemmer?",
+      "options": [
+        "Kun personlige salgssamtaler ved hvert besøg",
+        "Ingen mulighed for kontakt med medarbejdere",
+        "Selvbetjening via app eller adgangssystem suppleret med hjælp ved behov",
+        "Kun telefonkontakt med hovedkontoret"
+      ],
+      "correct": 2,
+      "explanation": "Faste kunder kan selv ordne rutiner digitalt og få personlig hjælp ved hold eller spørgsmål. (Dokumentationsopgaven, side 5)."
+    },
+    {
+      "id": 33,
+      "category": "Kundeservice",
+      "muscle": "Kundevurdering",
+      "question": "Hvilket sæt er bedst til at vurdere kundeservice i et fitnesscenter?",
+      "options": [
+        "Kun antal annoncer på sociale medier",
+        "Renlighed, ventetid, udstyr, atmosfære og klar information",
+        "Kun instruktørernes tøjfarve",
+        "Kun virksomhedens størrelse"
+      ],
+      "correct": 1,
+      "explanation": "Kundernes oplevelse afhænger af både praktiske og menneskelige forhold. Spørgeskemaer og konkrete klager kan bruges til forbedring. (Dokumentationsopgaven, side 5)."
+    },
+    {
+      "id": 34,
+      "category": "Kundeservice",
+      "muscle": "Førstehåndsindtryk",
+      "question": "Hvad er en god første handling i receptionen?",
+      "options": [
+        "Ignorere kunden, indtil denne taler",
+        "Hilse venligt og vise, at kunden er blevet set",
+        "Kræve betaling for en rundvisning",
+        "Begynde med et langt salgspres"
+      ],
+      "correct": 1,
+      "explanation": "Et hurtigt, naturligt og venligt velkommen skaber tryghed. Det er et af de fem råd i opgaven. (Dokumentationsopgaven, side 6)."
+    },
+    {
+      "id": 35,
+      "category": "Kundeservice",
+      "muscle": "Behovsafdækning",
+      "question": "Hvilket spørgsmål er mest åbent og nyttigt til behovsafdækning?",
+      "options": [
+        "Du vil vel kun bruge løbebånd?",
+        "Skal du have Premium, ja eller nej?",
+        "Hvad vil du gerne opnå med din træning?",
+        "Du skal vel træne seks gange om ugen?"
+      ],
+      "correct": 2,
+      "explanation": "Åbne spørgsmål giver kunden mulighed for at beskrive mål og behov med egne ord. (Dokumentationsopgaven, side 6)."
+    },
+    {
+      "id": 36,
+      "category": "Kundeservice",
+      "muscle": "4 × 20-reglen",
+      "question": "Hvad henviser 4 × 20-reglen i opgaven til?",
+      "options": [
+        "20 sekunder, 20 ord, 20 skridt og ansigtets øverste 20 cm",
+        "20 minutter, 20 kunder, 20 kroner og 20 dage",
+        "20 produkter, 20 priser, 20 placeringer og 20 kampagner",
+        "20 procent rabat i fire måneder"
+      ],
+      "correct": 0,
+      "explanation": "Reglen er en praktisk huskeregel for førstehåndsindtryk, ikke en videnskabeligt fastslået naturlov. (Dokumentationsopgaven, side 6)."
+    },
+    {
+      "id": 37,
+      "category": "Kundeservice",
+      "muscle": "Kropsstøj",
+      "question": "Hvilken handling er et eksempel på kropsstøj under en kundesamtale?",
+      "options": [
+        "At lytte færdigt",
+        "At vende sig mod kunden",
+        "At se gentagne gange på sin mobiltelefon, mens kunden taler",
+        "At bruge et roligt tonefald"
+      ],
+      "correct": 2,
+      "explanation": "Kropsstøj er forstyrrende ikke-verbal adfærd, som eksempelvis at vende sig væk, afbryde eller kigge på mobilen. (Dokumentationsopgaven, side 6)."
+    },
+    {
+      "id": 38,
+      "category": "Kundeservice",
+      "muscle": "Kropssprog",
+      "question": "Hvad er den mest korrekte påstand om kropssprog i kundeservice?",
+      "options": [
+        "Præcis 93 % af al kommunikation er altid nonverbal",
+        "Kropssprog er ligegyldigt",
+        "Ord, tone og handling bør stemme overens; der findes ingen universel procentregel",
+        "Alle kunder ønsker samme øjenkontakt"
+      ],
+      "correct": 2,
+      "explanation": "En venlig og opmærksom kropsholdning hjælper, men kommunikation kan ikke reduceres til én universel procentsats. (Dokumentationsopgaven, side 6)."
+    },
+    {
+      "id": 39,
+      "category": "Kundeservice",
+      "muscle": "Afslutning af besøg",
+      "question": "Hvordan afsluttes en god første kundesamtale bedst?",
+      "options": [
+        "Ved at love noget, medlemskabet ikke omfatter",
+        "Med en tydelig næste handling og plads til spørgsmål",
+        "Ved at afbryde uden opsummering",
+        "Ved automatisk at tilmelde kunden"
+      ],
+      "correct": 1,
+      "explanation": "Et godt afslutningspunkt kan være tilbud om rundvisning, relevant medlemsinformation eller næste skridt, så kunden føler sig informeret. (Dokumentationsopgaven, side 6)."
+    },
+    {
+      "id": 40,
+      "category": "Virksomhedsforståelse",
+      "muscle": "Forretningsmodellens byggesten",
+      "question": "Hvilke fire byggesten fremhæves i Systimes model, som opgaven anvender?",
+      "options": [
+        "Ledelse, lager, lastbil og logo",
+        "Samarbejdspartnere, værditilbud, kunder og økonomi",
+        "Produkt, pris, sted og annoncer",
+        "Mål, mission, motivation og møder"
+      ],
+      "correct": 1,
+      "explanation": "Opgaven bruger Systimes fire byggesten til at beskrive, hvem virksomheden skaber værdi for, hvordan og med hvilken økonomi. (Dokumentationsopgaven, side 7)."
+    },
+    {
+      "id": 41,
+      "category": "Virksomhedsforståelse",
+      "muscle": "Traditionelle forretningsmodeller",
+      "question": "Hvilken traditionel virksomhedstype passer bedst på SATS?",
+      "options": [
+        "Produktionsvirksomhed",
+        "Grossist",
+        "Servicevirksomhed",
+        "Råvareproducent"
+      ],
+      "correct": 2,
+      "explanation": "SATS sælger primært adgang til faciliteter og serviceydelser frem for at fremstille eller videresælge fysiske varer. (Dokumentationsopgaven, side 7)."
+    },
+    {
+      "id": 42,
+      "category": "Virksomhedsforståelse",
+      "muscle": "Grossist og detailhandel",
+      "question": "Hvad er den væsentligste forskel mellem grossist og detailhandel?",
+      "options": [
+        "Grossisten sælger typisk til virksomheder, detailhandlen til slutforbrugere",
+        "En grossist sælger kun software",
+        "Detailhandel må ikke sælge fysiske varer",
+        "Der findes ingen forskel"
+      ],
+      "correct": 0,
+      "explanation": "En grossist handler normalt med andre erhvervsdrivende, mens detailhandel sælger til slutforbrugeren. (Dokumentationsopgaven, side 7)."
+    },
+    {
+      "id": 43,
+      "category": "Virksomhedsforståelse",
+      "muscle": "Digitale platforme",
+      "question": "Hvilket eksempel passer bedst til en digital platformsbygger?",
+      "options": [
+        "Et fitnesscenter, der udskifter vægtskiver",
+        "Airbnb, som forbinder udbydere og brugere",
+        "En kiosk uden internet",
+        "En producent af træningssko"
+      ],
+      "correct": 1,
+      "explanation": "En platform gør det muligt for forskellige brugergrupper at finde og handle med hinanden. Det adskiller sig fra blot at have en webshop. (Dokumentationsopgaven, side 7)."
+    },
+    {
+      "id": 44,
+      "category": "Virksomhedsforståelse",
+      "muscle": "Abonnementsmodel",
+      "question": "Hvad kendetegner SATS' abonnementsbaserede forretningsmodel?",
+      "options": [
+        "Et engangssalg af adgang for altid",
+        "Tilbagevendende medlemsbetaling for adgang til aftalte ydelser",
+        "Kun indtægter fra reklamer",
+        "At virksomheden aldrig har faste omkostninger"
+      ],
+      "correct": 1,
+      "explanation": "Medlemsbetaling giver løbende omsætning, men forudsætter fastholdelse og kapacitet til at levere den lovede service. (Dokumentationsopgaven, side 7–8)."
+    },
+    {
+      "id": 45,
+      "category": "Virksomhedsforståelse",
+      "muscle": "Værditilbud og økonomi",
+      "question": "Hvorfor er antal medlemmer alene ikke nok til at bedømme et centers økonomi?",
+      "options": [
+        "Fordi ingen medlemmer betaler",
+        "Fordi indtjening, fastholdelse, omkostninger og kapacitetsudnyttelse også har betydning",
+        "Fordi prisen aldrig ændrer sig",
+        "Fordi rengøring ikke koster noget"
+      ],
+      "correct": 1,
+      "explanation": "Et center har udgifter til lokaler, energi, løn, udstyr og IT. Det skal kombinere indtjening med en tilfredsstillende kundeoplevelse. (Dokumentationsopgaven, side 8)."
+    },
+    {
+      "id": 46,
+      "category": "Virksomhedsforståelse",
+      "muscle": "Samarbejdspartnere",
+      "question": "Hvilket eksempel er en sandsynlig partnerkategori i SATS' forretningsmodel?",
+      "options": [
+        "Leverandører af træningsudstyr og betalingssystemer",
+        "Kun andre fitnessmedlemmer",
+        "Udelukkende offentlige myndigheder",
+        "Kun konkurrerende fitnesscentre"
+      ],
+      "correct": 0,
+      "explanation": "Leverandører, udlejere og betalings- eller IT-systemer er plausible partnerkategorier. Opgaven hævder ikke, at bestemte kontrakter er dokumenteret. (Dokumentationsopgaven, side 8)."
+    },
+    {
+      "id": 47,
+      "category": "Virksomhedsforståelse",
+      "muscle": "SMART-mål",
+      "question": "Hvilket mål er bedst formuleret efter SMART-princippet?",
+      "options": [
+        "Vi vil være de bedste på et tidspunkt",
+        "Vi skal nok have flere medlemmer snart",
+        "Et udvalgt center vil øge aktive medlemmer fra 1.000 til 1.100 på seks måneder, hvis det viser sig realistisk",
+        "Alle skal elske SATS"
+      ],
+      "correct": 2,
+      "explanation": "SMART stiller krav om konkret indhold, måling, accept/attraktivitet, realisme og tid. Tallene er et hypotetisk eksempel. (Dokumentationsopgaven, side 8)."
+    },
+    {
+      "id": 48,
+      "category": "Virksomhedsforståelse",
+      "muscle": "De fire rette",
+      "question": "Hvilken af følgende er en af 'de fire rette' i sælgers forpligtelser?",
+      "options": [
+        "Rette tidspunkt, rette kvalitet, rette sted og rette pris",
+        "Rette medarbejder, rette reklame, rette logo og rette konkurrent",
+        "Rette produktfarve, rette rabat, rette musik og rette platform",
+        "Rette målgruppe, rette kampagne, rette slogan og rette avis"
+      ],
+      "correct": 0,
+      "explanation": "De fire rette er kvalitet, tid, sted og pris. Medlemskabet skal leveres som aftalt på alle fire punkter. (Dokumentationsopgaven, side 8)."
+    },
+    {
+      "id": 49,
+      "category": "Virksomhedsforståelse",
+      "muscle": "Forbrugeraftalelovens § 4",
+      "question": "Må SATS som hovedregel uopfordret ringe til en privatperson for at sælge et medlemskab?",
+      "options": [
+        "Ja, alle virksomheder må altid ringe",
+        "Ja, hvis opkaldet sker før kl. 18",
+        "Nej, uanmodet telefonsalg til forbrugere er som udgangspunkt begrænset, med lovbestemte undtagelser",
+        "Nej, heller ikke hvis kunden udtrykkeligt og gyldigt har bedt om kontakten"
+      ],
+      "correct": 2,
+      "explanation": "Forbrugeraftalelovens § 4 begrænser uanmodede salgsopkald. Et gyldigt kontaktgrundlag eller en lovlig undtagelse skal vurderes; en generel påstand om alle gadesalg er også forkert. (Dokumentationsopgaven, side 9)."
+    },
+    {
+      "id": 50,
+      "category": "Virksomhedsforståelse",
+      "muscle": "Markedsføring via sms",
+      "question": "Hvilket regelsæt er også centralt ved markedsføring af fitnessmedlemskaber via e-mail eller sms?",
+      "options": [
+        "Kun arbejdsmiljøloven",
+        "Markedsføringsloven, herunder regler om elektronisk markedsføring",
+        "Kun færdselsloven",
+        "Ingen regler gælder elektroniske beskeder"
+      ],
+      "correct": 1,
+      "explanation": "Opgaven præciserer, at e-mail og sms ikke blot afgøres af forbrugeraftalelovens § 4; elektronisk direkte markedsføring reguleres også af markedsføringsloven. (Dokumentationsopgaven, side 9)."
+    }
+  ]
+};
+
+</script>
+<script>
+(() => {
+  "use strict";
+
+  const quizData = window.NEXT_QUIZ;
+  if (!quizData || !Array.isArray(quizData.questions)) {
+    throw new Error("Quizdata kunne ikke indlæses.");
+  }
+
+  const questions = quizData.questions;
+  const categories = quizData.categories;
+  const categoryDescriptions = {
+    "Marketingmix": "Produkt, pris, place og promotion, kvalitet og sortiment",
+    "Marked og kunder": "SWOT, konkurrence, marked, segmentering og købsadfærd",
+    "Kundeservice": "Modtagelse, kropssprog og kommunikation",
+    "Virksomhedsforståelse": "Forretningsmodeller, SMART og forbrugerrettigheder"
+  };
+
+  const elements = {
+    intro: document.querySelector("#intro-screen"),
+    quiz: document.querySelector("#quiz-screen"),
+    result: document.querySelector("#result-screen"),
+    questionCounter: document.querySelector("#question-counter"),
+    questionCategory: document.querySelector("#question-category"),
+    progress: document.querySelector(".progress-track"),
+    progressBar: document.querySelector("#progress-bar"),
+    categoryList: document.querySelector("#category-list"),
+    muscleName: document.querySelector("#muscle-name"),
+    questionTitle: document.querySelector("#question-title"),
+    answerList: document.querySelector("#answer-list"),
+    questionAction: document.querySelector("#question-action"),
+    selectionHint: document.querySelector("#selection-hint"),
+    submit: document.querySelector("#submit-answer"),
+    feedback: document.querySelector("#feedback-panel"),
+    feedbackSymbol: document.querySelector("#feedback-symbol"),
+    feedbackKicker: document.querySelector("#feedback-kicker"),
+    feedbackTitle: document.querySelector("#feedback-title"),
+    feedbackExplanation: document.querySelector("#feedback-explanation"),
+    next: document.querySelector("#next-question"),
+    resultTitle: document.querySelector("#result-title"),
+    resultSummary: document.querySelector("#result-summary"),
+    resultScore: document.querySelector("#result-score"),
+    resultPercentage: document.querySelector("#result-percentage"),
+    categoryBreakdown: document.querySelector("#category-breakdown"),
+    answerReview: document.querySelector("#answer-review")
+  };
+
+  let order = [];
+  let currentIndex = 0;
+  let selectedIndex = null;
+  let answered = false;
+  let responses = {};
+
+  const pad = (value) => String(value).padStart(2, "0");
+
+  function shuffle(items) {
+    const copy = [...items];
+    for (let index = copy.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      [copy[index], copy[randomIndex]] = [copy[randomIndex], copy[index]];
+    }
+    return copy;
+  }
+
+  function showScreen(name) {
+    elements.intro.hidden = name !== "intro";
+    elements.quiz.hidden = name !== "quiz";
+    elements.result.hidden = name !== "result";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function startQuiz() {
+    order = shuffle(questions);
+    currentIndex = 0;
+    selectedIndex = null;
+    answered = false;
+    responses = {};
+    showScreen("quiz");
+    renderQuestion();
+  }
+
+  function goHome(event) {
+    if (event) event.preventDefault();
+    showScreen("intro");
+  }
+
+  function renderCategoryRail(activeCategory) {
+    elements.categoryList.replaceChildren();
+
+    categories.forEach((category) => {
+      const item = document.createElement("li");
+      const count = questions.filter((question) => question.category === category).length;
+      item.classList.toggle("active", category === activeCategory);
+      item.append(document.createTextNode(category));
+
+      const countElement = document.createElement("span");
+      countElement.textContent = pad(count);
+      item.append(countElement);
+      elements.categoryList.append(item);
+    });
+  }
+
+  function renderQuestion() {
+    const question = order[currentIndex];
+    const questionNumber = currentIndex + 1;
+    const progressPercentage = (questionNumber / order.length) * 100;
+
+    selectedIndex = null;
+    answered = false;
+
+    elements.questionCounter.textContent = `Spørgsmål ${pad(questionNumber)} / ${pad(order.length)}`;
+    elements.questionCategory.textContent = question.category;
+    elements.progressBar.style.width = `${progressPercentage}%`;
+    elements.progress.setAttribute("aria-valuenow", String(questionNumber));
+
+    elements.muscleName.replaceChildren();
+    const numberBadge = document.createElement("span");
+    numberBadge.textContent = pad(questionNumber);
+    elements.muscleName.append(numberBadge, document.createTextNode(question.muscle));
+    elements.questionTitle.textContent = question.question;
+
+    elements.answerList.replaceChildren();
+    question.options.forEach((option, optionIndex) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "answer-option";
+      button.setAttribute("role", "radio");
+      button.setAttribute("aria-checked", "false");
+      button.dataset.index = String(optionIndex);
+
+      const letter = document.createElement("span");
+      letter.className = "answer-letter";
+      letter.textContent = String.fromCharCode(65 + optionIndex);
+
+      const text = document.createElement("span");
+      text.textContent = option;
+
+      const state = document.createElement("span");
+      state.className = "answer-state";
+      state.setAttribute("aria-hidden", "true");
+
+      button.append(letter, text, state);
+      button.addEventListener("click", () => selectAnswer(optionIndex));
+      elements.answerList.append(button);
+    });
+
+    elements.questionAction.hidden = false;
+    elements.selectionHint.textContent = "Vælg en svarmulighed for at fortsætte.";
+    elements.submit.disabled = true;
+    elements.feedback.hidden = true;
+    elements.feedback.className = "feedback-panel";
+
+    renderCategoryRail(question.category);
+    window.setTimeout(() => elements.questionTitle.focus(), 0);
+  }
+
+  function selectAnswer(optionIndex) {
+    if (answered) return;
+
+    selectedIndex = optionIndex;
+    elements.submit.disabled = false;
+    elements.selectionHint.textContent = `Svar ${String.fromCharCode(65 + optionIndex)} er valgt.`;
+
+    elements.answerList.querySelectorAll(".answer-option").forEach((button, index) => {
+      const isSelected = index === optionIndex;
+      button.classList.toggle("selected", isSelected);
+      button.setAttribute("aria-checked", String(isSelected));
+    });
+  }
+
+  function submitAnswer() {
+    if (selectedIndex === null || answered) return;
+
+    const question = order[currentIndex];
+    const isCorrect = selectedIndex === question.correct;
+    answered = true;
+    responses[question.id] = selectedIndex;
+
+    elements.answerList.querySelectorAll(".answer-option").forEach((button, index) => {
+      const state = button.querySelector(".answer-state");
+      button.disabled = true;
+      button.classList.remove("selected");
+
+      if (index === question.correct) {
+        button.classList.add("correct");
+        state.textContent = "✓";
+      } else if (index === selectedIndex) {
+        button.classList.add("wrong");
+        state.textContent = "×";
+      }
+    });
+
+    elements.questionAction.hidden = true;
+    elements.feedback.hidden = false;
+    elements.feedback.classList.add(isCorrect ? "is-correct" : "is-wrong");
+    elements.feedbackSymbol.textContent = isCorrect ? "✓" : "×";
+    elements.feedbackKicker.textContent = isCorrect ? "Korrekt svar" : "Forkert svar";
+    elements.feedbackTitle.textContent = isCorrect ? "Rigtigt!" : "Ikke helt";
+    elements.feedbackExplanation.textContent = question.explanation;
+    elements.next.innerHTML = currentIndex === order.length - 1
+      ? "Se resultat <span aria-hidden=\"true\">→</span>"
+      : "Næste spørgsmål <span aria-hidden=\"true\">→</span>";
+  }
+
+  function nextQuestion() {
+    if (currentIndex === order.length - 1) {
+      renderResult();
+      return;
+    }
+
+    currentIndex += 1;
+    renderQuestion();
+  }
+
+  function getEvaluation(score) {
+    const percentage = Math.round((score / questions.length) * 100);
+
+    if (percentage >= 90) {
+      return {
+        title: "Eksamensviden i topform",
+        summary: "Du har sikkert styr på centrale afsætningsbegreber og kan forbinde teori med SATS-casen. Brug facitoversigten til at finpudse de få detaljer, der mangler."
+      };
+    }
+
+    if (percentage >= 73) {
+      return {
+        title: "Stærkt greb om afsætning",
+        summary: "Du er godt med. Gennemgå især de spørgsmål, du missede, og øv dig i at forklare begreberne med konkrete eksempler fra SATS og PureGym."
+      };
+    }
+
+    if (percentage >= 50) {
+      return {
+        title: "Godt på vej",
+        summary: "Du kan flere af begreberne, men nogle kræver en ny repetitionsrunde. Brug forklaringerne og de angivne sider i opgaven."
+      };
+    }
+
+    return {
+      title: "Tid til en ny runde",
+      summary: "Gennemgå marketingmix, markedsvilkår, kundeservice og virksomhedsforståelse i din opgave. Gentag quizzen efter du har læst facit."
+    };
+  }
+
+  function renderResult() {
+    const score = questions.filter((question) => responses[question.id] === question.correct).length;
+    const percentage = Math.round((score / questions.length) * 100);
+    const evaluation = getEvaluation(score);
+
+    elements.resultTitle.textContent = evaluation.title;
+    elements.resultSummary.textContent = evaluation.summary;
+    elements.resultScore.textContent = pad(score);
+    elements.resultPercentage.textContent = `${percentage}% rigtige`;
+
+    elements.categoryBreakdown.replaceChildren();
+    categories.forEach((category) => {
+      const categoryQuestions = questions.filter((question) => question.category === category);
+      const correctAnswers = categoryQuestions.filter(
+        (question) => responses[question.id] === question.correct
+      ).length;
+      const categoryPercentage = Math.round((correctAnswers / categoryQuestions.length) * 100);
+
+      const card = document.createElement("article");
+      card.className = "category-card";
+      card.innerHTML = `
+        <header>
+          <h3>${category}</h3>
+          <strong>${correctAnswers}/${categoryQuestions.length}</strong>
+        </header>
+        <div class="category-track" aria-hidden="true"><span style="width:${categoryPercentage}%"></span></div>
+        <p>${categoryDescriptions[category]}</p>
+      `;
+      elements.categoryBreakdown.append(card);
+    });
+
+    elements.answerReview.replaceChildren();
+    questions.forEach((question, index) => {
+      const chosen = responses[question.id];
+      const isCorrect = chosen === question.correct;
+      const details = document.createElement("details");
+
+      const summary = document.createElement("summary");
+      const status = document.createElement("span");
+      status.className = `review-status ${isCorrect ? "correct" : "wrong"}`;
+      status.textContent = isCorrect ? "✓" : "×";
+
+      const title = document.createElement("span");
+      title.className = "review-title";
+      const muscle = document.createElement("small");
+      muscle.textContent = question.muscle;
+      const questionText = document.createElement("strong");
+      questionText.textContent = `${pad(index + 1)}. ${question.question}`;
+      title.append(muscle, questionText);
+
+      const plus = document.createElement("span");
+      plus.className = "review-plus";
+      plus.textContent = "+";
+      plus.setAttribute("aria-hidden", "true");
+
+      summary.append(status, title, plus);
+
+      const body = document.createElement("div");
+      body.className = "review-body";
+
+      if (!isCorrect) {
+        const chosenAnswer = document.createElement("p");
+        const chosenLabel = document.createElement("label");
+        chosenLabel.textContent = "Dit svar";
+        chosenAnswer.append(
+          chosenLabel,
+          document.createTextNode(chosen === undefined ? "Ikke besvaret" : question.options[chosen])
+        );
+        body.append(chosenAnswer);
+      }
+
+      const correctAnswer = document.createElement("p");
+      const correctLabel = document.createElement("label");
+      correctLabel.textContent = "Korrekt svar";
+      correctAnswer.append(correctLabel, document.createTextNode(question.options[question.correct]));
+
+      const explanation = document.createElement("p");
+      explanation.className = "review-explanation";
+      explanation.textContent = question.explanation;
+
+      body.append(correctAnswer, explanation);
+      details.append(summary, body);
+      elements.answerReview.append(details);
+    });
+
+    showScreen("result");
+  }
+
+  document.querySelectorAll("[data-start]").forEach((button) => {
+    button.addEventListener("click", startQuiz);
+  });
+
+  document.querySelectorAll("[data-home]").forEach((button) => {
+    button.addEventListener("click", goHome);
+  });
+
+  elements.submit.addEventListener("click", submitAnswer);
+  elements.next.addEventListener("click", nextQuestion);
+
+  document.addEventListener("keydown", (event) => {
+    if (elements.quiz.hidden || answered) return;
+
+    const numericChoice = Number(event.key);
+    if (numericChoice >= 1 && numericChoice <= 4) {
+      selectAnswer(numericChoice - 1);
+    } else if (event.key === "Enter" && selectedIndex !== null) {
+      submitAnswer();
+    }
+  });
+})();
+
+</script>
 </body>
 </html>
